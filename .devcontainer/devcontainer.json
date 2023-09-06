@@ -5,7 +5,11 @@
 
   // Update the 'dockerComposeFile' list if you have more compose files or use different names.
   // The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
-  "dockerComposeFile": ["../docker-compose.yaml", "docker-compose.yml"],
+  "dockerComposeFile": [
+    "../docker-compose.yaml",
+    "../docker-compose.override.yaml",
+    "docker-compose.yml"
+  ],
 
   // The 'service' property is the name of the service for the container that VS Code should
   // use. Update this value and .devcontainer/docker-compose.yml to the real service name.
@@ -14,6 +18,7 @@
   // The optional 'workspaceFolder' property is the path VS Code should open by default when
   // connected. This is typically a file mount in .devcontainer/docker-compose.yml
   "workspaceFolder": "/home/node/app",
+
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {},
     "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
@@ -22,9 +27,32 @@
     },
     "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {}
   },
+
   "customizations": {
     "vscode": {
-      "extensions": ["prisma.prisma"]
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      },
+      "extensions": [
+        "prisma.prisma",
+        "dbaeumer.vscode-eslint",
+        "rvest.vs-code-prettier-eslint",
+        "SonarSource.sonarlint-vscode",
+        "esbenp.prettier-vscode",
+        "streetsidesoftware.code-spell-checker",
+        "streetsidesoftware.code-spell-checker-portuguese",
+        "mquandalle.graphql",
+        "github.vscode-github-actions",
+        "eamodio.gitlens",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "xyz.local-history",
+        "AbhijoyBasak.nestjs-files",
+        "christian-kohler.path-intellisense",
+        "Prisma.prisma",
+        "humao.rest-client",
+        "bradlc.vscode-tailwindcss",
+        "ms-azuretools.vscode-docker"
+      ]
     }
   }
 

@@ -1,5 +1,4 @@
-import { v4 as uuidv4 } from "uuid";
-
+import UniqueEntityId from "../../../@seedwork/domain/unique-entity-id.vo";
 export type CategoryProperties = {
   name: string;
   description?: string;
@@ -8,10 +7,10 @@ export type CategoryProperties = {
 };
 
 export class Category {
-  public readonly id: string;
+  public readonly id: UniqueEntityId;
 
-  constructor(public readonly props: CategoryProperties, id?: string) {
-    this.id = id || uuidv4();
+  constructor(public readonly props: CategoryProperties, id?: UniqueEntityId) {
+    this.id = id || new UniqueEntityId();
     this.description = this.props.description;
     this.props.is_active = this.props.is_active ?? true;
     this.props.created_at = this.props.created_at ?? new Date();
@@ -39,3 +38,10 @@ export class Category {
     return this.props.created_at;
   }
 }
+
+// mede, qualifica ou descreve uma coisa no dominio
+// pode ser mantido como individual
+// ele modela um todo conceitual compondo atributos relacionados como uma inidade integral
+// ele e completamente substituivel quando a medicao ou descricao muda
+// ele pode ser comparado com outros usando a igualdade de valor
+// ele fornece para comportamento livre de efeitos colaterais
